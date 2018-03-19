@@ -1,2 +1,6 @@
 
 \.idea/
+
+Examples/ExampleWebService/audit\.log
+
+*.iml
