@@ -13,9 +13,10 @@
         <module>JPARepository</module>
         <module>CoreService</module>
         <module>Examples</module>
-        <module>SwaggerUI</module>
+
+        <!--module>SwaggerUI</module>
         <module>Firebase</module>
-        <module>Sql2oRepository</module>
+        <module>Sql2oRepository</module-->
     </modules>
 
     <packaging>pom</packaging>

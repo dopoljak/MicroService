@@ -9,7 +9,7 @@ import java.sql.Statement;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
-import static com.ilirium.database.commons.DBMigrationInvoker.RESOURCE_NAME_DATASOURCE;
+//import static com.ilirium.database.commons.DBMigrationInvoker.RESOURCE_NAME_DATASOURCE;
 
 /**
  * @author dpoljak

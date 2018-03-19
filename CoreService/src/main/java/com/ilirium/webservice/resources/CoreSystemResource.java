@@ -1,15 +1,10 @@
 package com.ilirium.webservice.resources;
 
-import com.ilirium.database.flyway.SchemaVersion;
-import com.ilirium.database.flyway.SchemaVersionRepository;
 import com.ilirium.webservice.commons.AppConfiguration;
 import com.ilirium.webservice.commons.DateUtils;
 import com.ilirium.webservice.commons.VersionUtils;
 import com.ilirium.webservice.filters.LoggingFilter;
 import io.swagger.annotations.Api;
-import io.swagger.annotations.ApiOperation;
-import org.slf4j.MDC;
-
 import javax.enterprise.context.RequestScoped;
 import javax.inject.Inject;
 import javax.servlet.ServletContext;
@@ -20,7 +15,6 @@ import javax.ws.rs.Produces;
 import javax.ws.rs.core.Context;
 import javax.ws.rs.core.MediaType;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
 /**
@@ -30,13 +24,11 @@ import java.util.Map;
 @Path("/system")
 @RequestScoped
 @Transactional
-public class SystemResource {
+public class CoreSystemResource {
 
-    private static final org.slf4j.Logger LOGGER = org.slf4j.LoggerFactory.getLogger(SystemResource.class);
+    private static final org.slf4j.Logger LOGGER = org.slf4j.LoggerFactory.getLogger(CoreSystemResource.class);
     private static final long START_TIME = System.currentTimeMillis();
 
-    @Inject
-    private SchemaVersionRepository schemaVersionRepository;
 
     @Inject
     private AppConfiguration appConfiguration;
@@ -51,7 +43,7 @@ public class SystemResource {
         LOGGER.info(">> getDefault()");
 
         final Map<String, Object> response = getVersionMap();
-        response.put("Database", schemaVersionRepository.getSchemaVersions());
+        //response.put("Database", schemaVersionRepository.getSchemaVersions());
 
         LOGGER.info("<< getDefault({})", response);
         return (response);
@@ -63,24 +55,6 @@ public class SystemResource {
     public Map<String, Object> getVersion() {
         return getVersionMap();
     }
-
-    @ApiOperation(
-            value = "Get schema_version",
-            notes = "Get schema_version",
-            response = SchemaVersion.class
-    )
-    @GET
-    @Path("/schema_version")
-    @Produces(MediaType.APPLICATION_JSON)
-    public List<SchemaVersion> getDatabaseSchemaVersions() {
-        LOGGER.info(">> getDatabaseSchemaVersions()");
-
-        final List<SchemaVersion> response = schemaVersionRepository.getSchemaVersions();
-
-        LOGGER.info("<< getDatabaseSchemaVersions({})", response);
-        return (response);
-    }
-
 
     private Map<String, Object> getVersionMap() {
         Map<String, Object> version = new HashMap<>();

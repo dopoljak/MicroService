@@ -9,7 +9,8 @@
     </parent>
 
     <modules>
-        <module>ExampleWebService</module>
+		<module>ExampleDatabase</module>
+        <module>ExampleWebService</module>		
     </modules>
 
     <modelVersion>4.0.0</modelVersion>

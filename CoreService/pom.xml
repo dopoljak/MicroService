@@ -17,7 +17,6 @@
 
     <dependencies>
 
-
         <dependency>
             <groupId>javax</groupId>
             <artifactId>javaee-api</artifactId>
@@ -39,7 +38,6 @@
             <scope>provided</scope>
         </dependency>
 
-
         <dependency>
             <groupId>io.swagger</groupId>
             <artifactId>swagger-jaxrs</artifactId>
@@ -52,11 +50,11 @@
             </exclusions>
         </dependency>
 
-        <dependency>
+        <!--dependency>
             <groupId>com.iLirium.MicroService</groupId>
             <artifactId>JPARepository</artifactId>
             <version>1.00-SNAPSHOT</version>
-        </dependency>
+        </dependency-->
 
 
         <!--dependency>

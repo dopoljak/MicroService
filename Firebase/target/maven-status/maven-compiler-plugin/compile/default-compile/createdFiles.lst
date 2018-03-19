@@ -1,0 +1,9 @@
+com\ilirium\firebase\dto\PushResponseDTO.class
+com\ilirium\firebase\FirebaseRetrofitProvider.class
+com\ilirium\firebase\dto\PushDataDTO$Builder.class
+com\ilirium\firebase\dto\PushResponseDTO$Results.class
+com\ilirium\firebase\SendPushRetrofit.class
+com\ilirium\firebase\dto\PushDataDTO$Priority.class
+com\ilirium\firebase\IFirebaseCloudMessaging.class
+com\ilirium\firebase\FirebaseRetrofitProvider$ApiError.class
+com\ilirium\firebase\dto\PushDataDTO.class

@@ -3,6 +3,15 @@
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 
+    <!--
+
+    https://github.com/eclipse/microprofile-open-api/blob/master/spec/src/main/asciidoc/microprofile-openapi-spec.adoc
+    https://github.com/wildfly-swarm/wildfly-swarm-examples/tree/master/jpa-jaxrs-cdi/jpa-jaxrs-cdi-jta
+    https://wildfly-swarm.gitbooks.io/wildfly-swarm-users-guide/content/getting-started/shrinkwrap.html
+
+    -->
+
+
     <parent>
         <artifactId>Examples</artifactId>
         <groupId>com.iLirium.MicroService</groupId>
@@ -21,7 +30,6 @@
         <failOnMissingWebXml>false</failOnMissingWebXml>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
-
 
     <dependencyManagement>
         <dependencies>
@@ -42,7 +50,6 @@
                 <groupId>org.wildfly.swarm</groupId>
                 <artifactId>wildfly-swarm-plugin</artifactId>
                 <version>${version.wildfly.swarm}</version>
-
                 <executions>
                     <execution>
                         <goals>
@@ -55,6 +62,7 @@
     </build>
 
     <dependencies>
+
         <!-- Java EE 7 dependency -->
         <dependency>
             <groupId>javax</groupId>
@@ -62,6 +70,7 @@
             <version>7.0</version>
             <scope>provided</scope>
         </dependency>
+
         <!-- WildFly Swarm Fractions -->
         <dependency>
             <groupId>org.wildfly.swarm</groupId>
@@ -73,33 +82,37 @@
         </dependency>
         <dependency>
             <groupId>org.wildfly.swarm</groupId>
-            <artifactId>flyway</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>org.wildfly.swarm</groupId>
-            <artifactId>cdi</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>org.wildfly.swarm</groupId>
             <artifactId>transactions</artifactId>
         </dependency>
         <dependency>
             <groupId>org.wildfly.swarm</groupId>
             <artifactId>jaxrs</artifactId>
         </dependency>
+        <dependency>
+            <groupId>org.wildfly.swarm</groupId>
+            <artifactId>cdi</artifactId>
+        </dependency>
+
+
+        <!--dependency>
+            <groupId>org.wildfly.swarm</groupId>
+            <artifactId>cdi-jaxrsapi</artifactId>
+        </dependency-->
+        <!--dependency>
+            <groupId>org.wildfly.swarm</groupId>
+            <artifactId>cdi-config</artifactId>
+        </dependency-->
+        <!--dependency>
+            <groupId>org.wildfly.swarm</groupId>
+            <artifactId>flyway</artifactId>
+        </dependency-->
 
 
         <dependency>
-            <groupId>com.mysema.querydsl</groupId>
-            <artifactId>querydsl-apt</artifactId>
-            <version>3.7.4</version>
+            <groupId>com.iLirium.MicroService</groupId>
+            <artifactId>CoreService</artifactId>
+            <version>${project.parent.version}</version>
         </dependency>
-        <dependency>
-            <groupId>com.mysema.querydsl</groupId>
-            <artifactId>querydsl-jpa</artifactId>
-            <version>3.7.4</version>
-        </dependency>
-
 
     </dependencies>
 

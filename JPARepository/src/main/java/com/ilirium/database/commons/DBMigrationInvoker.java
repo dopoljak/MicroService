@@ -9,8 +9,10 @@ import javax.servlet.annotation.WebListener;
 import javax.sql.DataSource;
 
 //@WebListener
-public class DBMigrationInvoker implements ServletContextListener {
+public class DBMigrationInvoker { //implements ServletContextListener {
 
+
+    /*
     public static final String JBOSS_FULL_DATASOURCE = "jboss/datasources/AppDataSource";
     public static final String RESOURCE_NAME_DATASOURCE = "java:" + JBOSS_FULL_DATASOURCE;
 
@@ -34,6 +36,6 @@ public class DBMigrationInvoker implements ServletContextListener {
 
     @Override
     public void contextDestroyed(ServletContextEvent sce) {
-    }
+    }*/
 
 }

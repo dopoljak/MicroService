@@ -1,21 +1,22 @@
 package com.ilirium.webservice.commons;
 
-import com.ilirium.webservice.exceptions.JaxRSExceptionProvider;
-import com.ilirium.webservice.filters.CORSFilter;
-import com.ilirium.webservice.resources.SystemResource;
-import io.swagger.jaxrs.config.BeanConfig;
-
-import javax.annotation.PostConstruct;
-import javax.inject.Inject;
 import javax.ws.rs.ApplicationPath;
 import javax.ws.rs.core.Application;
-import java.util.HashSet;
-import java.util.Set;
 
-@ApplicationPath("/api")
-public abstract class JaxRsActivator extends Application {
+//@ApplicationPath("/api")
+public abstract class BaseJaxRsActivator extends Application {
 
-    private static final org.slf4j.Logger LOGGER = org.slf4j.LoggerFactory.getLogger(JaxRsActivator.class);
+    /*
+    private static final org.slf4j.Logger LOGGER = org.slf4j.LoggerFactory.getLogger(BaseJaxRsActivator.class);
+
+    public BaseJaxRsActivator() {
+        LOGGER.info(">> JaxRsActivator()");
+        LOGGER.info("Service activator : @ApplicationPath('/api') ...");
+        LOGGER.info("<< JaxRsActivator()");
+    }
+
+
+    //private static final org.slf4j.Logger LOGGER = org.slf4j.LoggerFactory.getLogger(BaseJaxRsActivator.class);
 
     /*
     @Inject
@@ -26,7 +27,7 @@ public abstract class JaxRsActivator extends Application {
     @Override
     public Set<Class<?>> getClasses() {
         Set<Class<?>> classes = new HashSet<>();
-        classes.add(SystemResource.class);
+        classes.add(CoreSystemResource.class);
         classes.add(CORSFilter.class);
         classes.add(ObjectMapperContextResolver.class);
         classes.add(JaxRSExceptionProvider.class);
@@ -41,7 +42,7 @@ public abstract class JaxRsActivator extends Application {
 
     @PostConstruct
     public void postConstruct() {
-        LOGGER.info(">> JaxRsActivator:postConstruct()");
+        LOGGER.info(">> BaseJaxRsActivator:postConstruct()");
 
         BeanConfig beanConfig = new BeanConfig();
         beanConfig.setTitle("uService");
@@ -57,7 +58,7 @@ public abstract class JaxRsActivator extends Application {
         LOGGER.info("SwaggerHost     = {}", appConfiguration.getSwaggerHost());
         LOGGER.info("SwaggerBasePath = {}", appConfiguration.getSwaggerBasePath());
 
-        LOGGER.info("<< JaxRsActivator:postConstruct()");
+        LOGGER.info("<< BaseJaxRsActivator:postConstruct()");
     }
 
     public abstract String getResourcePackage();

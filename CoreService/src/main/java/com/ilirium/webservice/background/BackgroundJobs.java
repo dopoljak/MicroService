@@ -1,6 +1,6 @@
 package com.ilirium.webservice.background;
 
-import com.ilirium.database.commons.H2DatabaseBackup;
+//import com.ilirium.database.commons.H2DatabaseBackup;
 
 import javax.enterprise.context.ApplicationScoped;
 import javax.enterprise.context.Destroyed;
@@ -13,12 +13,11 @@ import javax.inject.Inject;
  */
 //@WebListener
 @ApplicationScoped
-public class BackgroundJobs { //implements ServletContextListener {
+public class  BackgroundJobs { //implements ServletContextListener {
 
     private static final org.slf4j.Logger LOGGER = org.slf4j.LoggerFactory.getLogger(BackgroundJobs.class);
 
-    @Inject
-    private H2DatabaseBackup h2DatabaseBackup;
+    //@Inject private H2DatabaseBackup h2DatabaseBackup;
 
 
     public void init(@Observes @Initialized(ApplicationScoped.class) Object init) {

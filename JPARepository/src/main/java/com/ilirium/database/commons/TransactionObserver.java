@@ -1,6 +1,4 @@
-package com.ilirium.webservice.commons;
-
-import com.ilirium.database.commons.AbstractDO;
+package com.ilirium.database.commons;
 
 import javax.enterprise.context.ApplicationScoped;
 import javax.enterprise.event.Observes;

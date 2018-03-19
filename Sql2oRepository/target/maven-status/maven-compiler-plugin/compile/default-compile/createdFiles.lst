@@ -1,0 +1,9 @@
+com\ilirium\repository\sql2o\entity\SchemaVersion.class
+com\ilirium\repository\sql2o\repository\commons\Pagination.class
+com\ilirium\repository\sql2o\repository\commons\Sql2oSingleton.class
+com\ilirium\repository\sql2o\Database$1.class
+com\ilirium\repository\sql2o\entity\commons\AbstractDO.class
+com\ilirium\repository\sql2o\repository\SchemaVersionRepository.class
+com\ilirium\repository\sql2o\repository\commons\AbstractRepository.class
+com\ilirium\repository\sql2o\Database.class
+com\ilirium\repository\sql2o\Database$Builder.class
