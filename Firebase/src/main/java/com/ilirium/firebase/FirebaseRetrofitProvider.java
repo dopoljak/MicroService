@@ -13,7 +13,6 @@ import java.lang.annotation.Annotation;
 
 public class FirebaseRetrofitProvider {
 
-
     public static Retrofit createRetrofit(String baseUrl, String authorization) {
         OkHttpClient okHttpClient = createOkHttpClient(authorization);
         Retrofit retrofit = createRetrofit(baseUrl, okHttpClient);
@@ -45,6 +44,5 @@ public class FirebaseRetrofitProvider {
     public static class ApiError {
 
     }
-
 
 }

@@ -21,11 +21,7 @@
             <version>7.0</version>
             <scope>provided</scope>
         </dependency>
-        <dependency>
-            <groupId>org.flywaydb</groupId>
-            <artifactId>flyway-core</artifactId>
-            <version>4.2.0</version>
-        </dependency>
+
         <dependency>
             <groupId>com.mysema.querydsl</groupId>
             <artifactId>querydsl-apt</artifactId>
@@ -37,7 +33,13 @@
             <version>3.7.4</version>
         </dependency>
 
-        <dependency>
+
+        <!--dependency>
+            <groupId>org.flywaydb</groupId>
+            <artifactId>flyway-core</artifactId>
+            <version>4.2.0</version>
+        </dependency-->
+        <!--dependency>
             <groupId>io.swagger</groupId>
             <artifactId>swagger-jaxrs</artifactId>
             <version>1.5.15</version>
@@ -47,7 +49,7 @@
                     <artifactId>jsr311-api</artifactId>
                 </exclusion>
             </exclusions>
-        </dependency>
+        </dependency-->
 
 
     </dependencies>

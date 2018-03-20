@@ -16,4 +16,7 @@ public class TransactionObserver {
         LOGGER.info("After success = TransactionPhase.AFTER_SUCCESS");
     }
 
+    void processTxFailure(@Observes(during = TransactionPhase.AFTER_FAILURE) AbstractDO emp) {
+        LOGGER.info("After failure = TransactionPhase.AFTER_FAILURE");
+    }
 }

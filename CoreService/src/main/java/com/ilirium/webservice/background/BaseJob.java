@@ -1,7 +1,7 @@
 package com.ilirium.webservice.background;
 
-import org.jboss.weld.context.RequestContext;
-import org.jboss.weld.context.unbound.UnboundLiteral;
+//import org.jboss.weld.context.RequestContext;
+//import org.jboss.weld.context.unbound.UnboundLiteral;
 
 import javax.enterprise.inject.spi.CDI;
 
@@ -14,6 +14,8 @@ public abstract class BaseJob implements Runnable {
 
     @Override
     public void run() {
+
+        /*
         RequestContext requestContext = CDI.current().select(RequestContext.class, UnboundLiteral.INSTANCE).get();
         try {
             LOGGER.info(">> Activate request scoped");
@@ -23,7 +25,9 @@ public abstract class BaseJob implements Runnable {
             LOGGER.info("<< Deactivate request scoped");
             requestContext.deactivate();
         }
+        */
     }
 
     public abstract void execute();
+
 }

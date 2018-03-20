@@ -1,10 +1,12 @@
 package com.ilirium.webservice.commons;
 
+/*
 import com.fasterxml.jackson.core.JsonGenerator;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.SerializerProvider;
 import com.fasterxml.jackson.databind.ser.std.StdSerializer;
+*/
 
 import javax.ws.rs.ext.ContextResolver;
 import javax.ws.rs.ext.Provider;
@@ -13,9 +15,10 @@ import java.io.IOException;
 /**
  * @author DoDo
  */
-@Provider
-public class ObjectMapperContextResolver implements ContextResolver<ObjectMapper> {
+//@Provider
+public class ObjectMapperContextResolver { // implements ContextResolver<ObjectMapper> {
 
+    /*
     private final ObjectMapper mapper;
 
     public ObjectMapperContextResolver() {

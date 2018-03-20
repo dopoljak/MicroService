@@ -1,6 +1,7 @@
-package com.example.demo.dto;
+package com.example.demo.client.dto;
 
 public class DeviceDTO {
+
     private Long id;
     private String name;
 
@@ -19,4 +20,5 @@ public class DeviceDTO {
     public void setName(String name) {
         this.name = name;
     }
+
 }

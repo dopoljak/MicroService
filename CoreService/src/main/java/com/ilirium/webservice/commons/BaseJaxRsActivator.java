@@ -4,7 +4,7 @@ import javax.ws.rs.ApplicationPath;
 import javax.ws.rs.core.Application;
 
 //@ApplicationPath("/api")
-public abstract class BaseJaxRsActivator extends Application {
+public abstract class BaseJaxRsActivator /*extends Application*/ {
 
     /*
     private static final org.slf4j.Logger LOGGER = org.slf4j.LoggerFactory.getLogger(BaseJaxRsActivator.class);

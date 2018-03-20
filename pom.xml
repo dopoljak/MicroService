@@ -8,26 +8,35 @@
     <groupId>com.iLirium.MicroService</groupId>
     <artifactId>MicroService</artifactId>
     <version>1.00-SNAPSHOT</version>
-
-    <modules>
-        <module>JPARepository</module>
-        <module>CoreService</module>
-        <module>Examples</module>
-
-        <!--module>SwaggerUI</module>
-        <module>Firebase</module>
-        <module>Sql2oRepository</module-->
-    </modules>
-
     <packaging>pom</packaging>
 
 
     <properties>
+        <version.wildfly.swarm>2018.3.3</version.wildfly.swarm>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <maven.compiler.source>1.8</maven.compiler.source>
         <maven.compiler.target>1.8</maven.compiler.target>
     </properties>
 
+    <modules>
+        <module>JPARepository</module>
+        <module>CoreService</module>
+        <module>Examples</module>
+        <!--module>Firebase</module>
+        <module>Sql2oRepository</module-->
+    </modules>
+
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>org.wildfly.swarm</groupId>
+                <artifactId>bom-all</artifactId>
+                <version>${version.wildfly.swarm}</version>
+                <scope>import</scope>
+                <type>pom</type>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
 
     <repositories>
         <repository>
