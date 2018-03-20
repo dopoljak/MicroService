@@ -8,6 +8,23 @@
     https://github.com/eclipse/microprofile-open-api/blob/master/spec/src/main/asciidoc/microprofile-openapi-spec.adoc
     https://github.com/wildfly-swarm/wildfly-swarm-examples/tree/master/jpa-jaxrs-cdi/jpa-jaxrs-cdi-jta
     https://wildfly-swarm.gitbooks.io/wildfly-swarm-users-guide/content/getting-started/shrinkwrap.html
+    https://github.com/wildfly-swarm/wildfly-swarm-examples/tree/master/flyway
+
+    DATA SOURCE PROFILE (H2, POSTGRES ... )
+    https://wildfly-swarm.gitbooks.io/wildfly-swarm-users-guide/configuration/command_line.html
+
+    CONFIG:
+    https://github.com/wildfly-swarm/wildfly-swarm-examples/tree/master/config-options
+
+
+
+    TODO: research & test how to extract file from JAR
+    TODO: deployati WAR na pravi wildfly da se vidi oce se ovi moduli za database, datasource poklati ?
+    TODO: external configuration - istražiti kako napraviti config za wildfly + wildfly swarm - predlažem da se config u wildfly nalazi u standalone/config ili koji vec lokacija a da se samo u web.xml kaže ime konfiguracije ...
+    TODO: logiranje - externalizirati i vidjeti kako na oba nacina rješiti
+    TODO: staviti barem jedan primjer integracijskog testa - ima ih hrpa u primjerima treba vidjeti malo što je najbojje ...
+    TODO: implementirati jedan background job i sukladno tome počistiti smeče tamo u core service :D
+    TODO: vidjeti kako integrirati SwaggerUI da bude dio servisa
 
     -->
 
@@ -24,6 +41,8 @@
     <packaging>war</packaging>
 
     <properties>
+        <version.postgresql>9.4.1207</version.postgresql>
+        <version.h2>1.4.187</version.h2>
         <version.wildfly.swarm>2018.3.3</version.wildfly.swarm>
         <maven.compiler.source>1.8</maven.compiler.source>
         <maven.compiler.target>1.8</maven.compiler.target>
@@ -43,23 +62,6 @@
         </dependencies>
     </dependencyManagement>
 
-    <build>
-        <finalName>demo</finalName>
-        <plugins>
-            <plugin>
-                <groupId>org.wildfly.swarm</groupId>
-                <artifactId>wildfly-swarm-plugin</artifactId>
-                <version>${version.wildfly.swarm}</version>
-                <executions>
-                    <execution>
-                        <goals>
-                            <goal>package</goal>
-                        </goals>
-                    </execution>
-                </executions>
-            </plugin>
-        </plugins>
-    </build>
 
     <dependencies>
 
@@ -92,29 +94,103 @@
             <groupId>org.wildfly.swarm</groupId>
             <artifactId>cdi</artifactId>
         </dependency>
-
-
-        <!--dependency>
-            <groupId>org.wildfly.swarm</groupId>
-            <artifactId>cdi-jaxrsapi</artifactId>
-        </dependency-->
-        <!--dependency>
-            <groupId>org.wildfly.swarm</groupId>
-            <artifactId>cdi-config</artifactId>
-        </dependency-->
-        <!--dependency>
+        <dependency>
             <groupId>org.wildfly.swarm</groupId>
             <artifactId>flyway</artifactId>
-        </dependency-->
+        </dependency>
 
 
+        <!-- H2 & POSTGRES database driver -->
+        <dependency>
+            <groupId>com.h2database</groupId>
+            <artifactId>h2</artifactId>
+            <version>${version.h2}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.postgresql</groupId>
+            <artifactId>postgresql</artifactId>
+            <version>${version.postgresql}</version>
+        </dependency>
+
+
+        <!-- service specific -->
+        <dependency>
+            <groupId>com.iLirium.MicroService</groupId>
+            <artifactId>ExampleDatabase</artifactId>
+            <version>${project.version}</version>
+        </dependency>
         <dependency>
             <groupId>com.iLirium.MicroService</groupId>
             <artifactId>CoreService</artifactId>
-            <version>${project.parent.version}</version>
+            <version>${project.version}</version>
         </dependency>
 
     </dependencies>
+
+
+    <build>
+
+
+        <!-- ?? -->
+        <resources>
+            <resource>
+                <directory>src/main/resources</directory>
+                <filtering>true</filtering>
+            </resource>
+        </resources>
+
+
+        <finalName>ExampleWebService</finalName>
+
+
+
+
+        <plugins>
+
+
+            <!--
+                From command line service can be started with following line:
+                    java -jar .\ExampleWebService-swarm.jar -Sh2
+                configuration file will be picked up from resource folder from JAR.
+
+            -->
+            <plugin>
+                <groupId>org.wildfly.swarm</groupId>
+                <artifactId>wildfly-swarm-plugin</artifactId>
+                <version>${version.wildfly.swarm}</version>
+                <configuration>
+                    <arguments>
+                        <argument>-Sh2</argument>
+                    </arguments>
+                </configuration>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>package</goal>
+                        </goals>
+                    </execution>
+                    <!--execution>
+                        <id>package</id>
+                    </execution>
+                    <execution>
+                        <id>start</id>
+                        <configuration>
+                            <arguments>-Sh2</arguments>
+                        </configuration>
+                    </execution>
+                    <execution>
+                        <id>run</id>
+                        <configuration>
+                            <arguments>-Sh2</arguments>
+                        </configuration>
+                    </execution>
+                    <execution>
+                        <id>stop</id>
+                    </execution-->
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
 
 
 </project>

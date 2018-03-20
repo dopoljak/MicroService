@@ -7,12 +7,18 @@ import io.swagger.annotations.ApiOperation;
 
 import javax.enterprise.context.RequestScoped;
 import javax.inject.Inject;
+import javax.naming.Context;
+import javax.naming.InitialContext;
+import javax.persistence.EntityManager;
+import javax.sql.DataSource;
 import javax.transaction.Transactional;
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
+import java.sql.Connection;
 import java.util.List;
+import java.util.Map;
 
 @Api(value = "/", tags = "System")
 @Path("/system")
@@ -24,6 +30,9 @@ public class RepositorySystemResource {
 
     @Inject
     private SchemaVersionRepository schemaVersionRepository;
+
+    @Inject
+    private EntityManager entityManager;
 
     @ApiOperation(
             value = "Get schema_version",
@@ -41,5 +50,40 @@ public class RepositorySystemResource {
         LOGGER.info("<< getDatabaseSchemaVersions({})", response);
         return (response);
     }
+
+    @ApiOperation(
+            value = "Get driver_name",
+            notes = "Get driver_name",
+            response = String.class
+    )
+    @GET
+    @Path("/driver_name")
+    @Produces(MediaType.TEXT_PLAIN)
+    public String getDriverName() {
+
+        try {
+
+            /*
+            for (Map.Entry<String, Object> stringObjectEntry : schemaVersionRepository.getEntityManager().getEntityManagerFactory().getProperties().entrySet()) {
+            System.out.println("KEY : " + stringObjectEntry.getKey() + ", VALUE : " + stringObjectEntry.getValue());
+
+            }*/
+
+            //Context context = new InitialContext();
+            //DataSource dataSource = (DataSource) context.lookup("jboss/datasources/ExampleWebServiceDataSource");
+            DataSource dataSource = (DataSource) entityManager.getEntityManagerFactory().getProperties().get("javax.persistence.jtaDataSource");
+            Connection connection = dataSource.getConnection();
+            try {
+                return "MetaData -> DriverNamer : " + connection.getMetaData().getDriverName();
+            } finally {
+                connection.close();
+            }
+        } catch (Exception e) {
+            LOGGER.error("", e);
+            throw new RuntimeException(e);
+        }
+
+    }
+
 
 }

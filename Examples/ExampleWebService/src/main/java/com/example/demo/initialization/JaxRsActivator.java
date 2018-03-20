@@ -1,4 +1,4 @@
-package com.example.demo.rest;
+package com.example.demo.initialization;
 
 import javax.ws.rs.ApplicationPath;
 import javax.ws.rs.core.Application;

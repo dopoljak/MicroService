@@ -49,13 +49,6 @@ public class CoreSystemResource {
         return (response);
     }
 
-    @GET
-    @Path("/version")
-    @Produces(MediaType.APPLICATION_JSON)
-    public Map<String, Object> getVersion() {
-        return getVersionMap();
-    }
-
     private Map<String, Object> getVersionMap() {
         Map<String, Object> version = new HashMap<>();
         version.put(LoggingFilter.CORRELATION_ID, LoggingFilter.getCorrelationId());
