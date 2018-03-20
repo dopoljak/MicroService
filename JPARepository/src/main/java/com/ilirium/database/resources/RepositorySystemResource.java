@@ -60,17 +60,7 @@ public class RepositorySystemResource {
     @Path("/driver_name")
     @Produces(MediaType.TEXT_PLAIN)
     public String getDriverName() {
-
         try {
-
-            /*
-            for (Map.Entry<String, Object> stringObjectEntry : schemaVersionRepository.getEntityManager().getEntityManagerFactory().getProperties().entrySet()) {
-            System.out.println("KEY : " + stringObjectEntry.getKey() + ", VALUE : " + stringObjectEntry.getValue());
-
-            }*/
-
-            //Context context = new InitialContext();
-            //DataSource dataSource = (DataSource) context.lookup("jboss/datasources/ExampleWebServiceDataSource");
             DataSource dataSource = (DataSource) entityManager.getEntityManagerFactory().getProperties().get("javax.persistence.jtaDataSource");
             Connection connection = dataSource.getConnection();
             try {
@@ -82,8 +72,5 @@ public class RepositorySystemResource {
             LOGGER.error("", e);
             throw new RuntimeException(e);
         }
-
     }
-
-
 }

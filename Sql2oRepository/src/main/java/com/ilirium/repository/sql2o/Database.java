@@ -4,11 +4,11 @@ import java.sql.Connection;
 import java.sql.Statement;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+
 import org.flywaydb.core.Flyway;
 import org.sql2o.Sql2o;
 
 /**
- *
  * @author dpoljak
  */
 public class Database {
@@ -28,18 +28,6 @@ public class Database {
         Flyway flyway = new Flyway();
         flyway.setDataSource(sql2o.getDataSource());
         flyway.migrate();
-    }
-
-    public void makeBackup() {
-        try {
-            String SQL = String.format("BACKUP TO 'h2_backup_%s.zip'", SIMPLE_DATE_FORMAT.format(new Date()));
-            Connection connection = getSql2o().getDataSource().getConnection();
-            Statement statement = connection.createStatement();
-            statement.executeUpdate(SQL);
-            close(statement, connection);
-        } catch (Exception ex) {
-            throw new RuntimeException(ex);
-        }
     }
 
     void close(AutoCloseable... closable) {

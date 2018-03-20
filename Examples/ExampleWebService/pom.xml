@@ -3,8 +3,9 @@
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 
-    <!--
+<!--
 
+    https://access.redhat.com/documentation/en-us/red_hat_openshift_application_runtimes/1/html/wildfly_swarm_runtime_guide/wildfly_swarm_fractions_reference
     https://github.com/eclipse/microprofile-open-api/blob/master/spec/src/main/asciidoc/microprofile-openapi-spec.adoc
     https://github.com/wildfly-swarm/wildfly-swarm-examples/tree/master/jpa-jaxrs-cdi/jpa-jaxrs-cdi-jta
     https://wildfly-swarm.gitbooks.io/wildfly-swarm-users-guide/content/getting-started/shrinkwrap.html
@@ -25,8 +26,9 @@
     TODO: staviti barem jedan primjer integracijskog testa - ima ih hrpa u primjerima treba vidjeti malo što je najbojje ...
     TODO: implementirati jedan background job i sukladno tome počistiti smeče tamo u core service :D
     TODO: vidjeti kako integrirati SwaggerUI da bude dio servisa
+    TODO: verzioniranje pofixati (da su u rootu definirane sve verzije komponenti!)
 
-    -->
+-->
 
 
     <parent>
@@ -130,7 +132,6 @@
 
     <build>
 
-
         <!-- ?? -->
         <resources>
             <resource>
@@ -139,20 +140,13 @@
             </resource>
         </resources>
 
-
         <finalName>ExampleWebService</finalName>
 
-
-
-
         <plugins>
-
-
             <!--
                 From command line service can be started with following line:
-                    java -jar .\ExampleWebService-swarm.jar -Sh2
+                java -jar .\ExampleWebService-swarm.jar -Sh2
                 configuration file will be picked up from resource folder from JAR.
-
             -->
             <plugin>
                 <groupId>org.wildfly.swarm</groupId>

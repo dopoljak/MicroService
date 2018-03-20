@@ -5,6 +5,7 @@ import com.ilirium.webservice.commons.DateUtils;
 import com.ilirium.webservice.commons.VersionUtils;
 import com.ilirium.webservice.filters.LoggingFilter;
 import io.swagger.annotations.Api;
+
 import javax.enterprise.context.RequestScoped;
 import javax.inject.Inject;
 import javax.servlet.ServletContext;
@@ -43,7 +44,6 @@ public class CoreSystemResource {
         LOGGER.info(">> getDefault()");
 
         final Map<String, Object> response = getVersionMap();
-        //response.put("Database", schemaVersionRepository.getSchemaVersions());
 
         LOGGER.info("<< getDefault({})", response);
         return (response);
@@ -57,6 +57,5 @@ public class CoreSystemResource {
         version.put("Manifest", VersionUtils.readWarManifest(servletContext));
         return version;
     }
-
 
 }
