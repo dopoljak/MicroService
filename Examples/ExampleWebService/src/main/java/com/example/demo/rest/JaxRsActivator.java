@@ -1,7 +1,5 @@
 package com.example.demo.rest;
 
-import com.ilirium.webservice.commons.BaseJaxRsActivator;
-
 import javax.ws.rs.ApplicationPath;
 import javax.ws.rs.core.Application;
 

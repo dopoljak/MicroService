@@ -4,3 +4,11 @@
 Examples/ExampleWebService/audit\.log
 
 *.iml
+
+Examples/ExampleWebService/target/
+
+Firebase/target/
+
+Sql2oRepository/target/
+
+SwaggerUI/target/
