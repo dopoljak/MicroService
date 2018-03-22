@@ -12,3 +12,11 @@ Firebase/target/
 Sql2oRepository/target/
 
 SwaggerUI/target/
+
+CoreService/target/
+
+Examples/ExampleClient/target/
+
+JPARepository/target/
+
+Examples/ExampleDatabase/target/
