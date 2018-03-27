@@ -1,6 +1,6 @@
 MicroService
 
-   https://access.redhat.com/documentation/en-us/red_hat_openshift_application_runtimes/1/html/wildfly_swarm_runtime_guide/wildfly_swarm_fractions_reference
+    https://access.redhat.com/documentation/en-us/red_hat_openshift_application_runtimes/1/html/wildfly_swarm_runtime_guide/wildfly_swarm_fractions_reference
     https://github.com/eclipse/microprofile-open-api/blob/master/spec/src/main/asciidoc/microprofile-openapi-spec.adoc
     https://github.com/wildfly-swarm/wildfly-swarm-examples/tree/master/jpa-jaxrs-cdi/jpa-jaxrs-cdi-jta
     https://wildfly-swarm.gitbooks.io/wildfly-swarm-users-guide/content/getting-started/shrinkwrap.html
@@ -22,3 +22,4 @@ MicroService
     TODO: implementirati jedan background job i sukladno tome počistiti smeče tamo u core service :D
     TODO: verzioniranje maven/pom pofixati (da su u rootu definirane sve verzije komponenti!)
     TODO: refaktorirati orderRequest i paging ili ih totalno replacati sa CommonBean ?? čini se da je full jednostavnije !
+    TODO: probati projekt/modul ExampleWebService prebaciti u JAR (umjesto WAR) i kao takvoga pokrenuti sa SWARM da vidimo hoce li brže debugirat a onda lako dodamo još jedan modul koji ce to prepakirati u WAR

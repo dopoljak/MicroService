@@ -5,7 +5,7 @@ import java.sql.Statement;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
-import org.flywaydb.core.Flyway;
+//import org.flywaydb.core.Flyway;
 import org.sql2o.Sql2o;
 
 /**
@@ -24,11 +24,12 @@ public class Database {
         return sql2o;
     }
 
+    /*
     public void flyway() {
         Flyway flyway = new Flyway();
         flyway.setDataSource(sql2o.getDataSource());
         flyway.migrate();
-    }
+    }*/
 
     void close(AutoCloseable... closable) {
         for (AutoCloseable autoCloseable : closable) {

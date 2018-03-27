@@ -59,12 +59,12 @@
             <groupId>org.wildfly.swarm</groupId>
             <artifactId>flyway</artifactId>
         </dependency>
-        <dependency>
+        <!--dependency>
             <groupId>org.wildfly.swarm.servers</groupId>
             <artifactId>swagger-ui</artifactId>
             <classifier>swarm</classifier>
             <version>${version.wildfly.swarm}</version>
-        </dependency>
+        </dependency-->
 
 
         <!-- H2 & POSTGRES database driver -->
@@ -113,6 +113,18 @@
         <finalName>ExampleWebService</finalName>
 
         <plugins>
+
+            <!--plugin>
+                <artifactId>maven-war-plugin</artifactId>
+                <version>3.2.0</version>
+                <configuration>
+                    <packagingIncludes>
+                        <packagingIncludes>WEB-INF/lib/flyway-2018.3.3.jar</packagingIncludes>
+                    </packagingIncludes>
+                </configuration>
+            </plugin-->
+
+
             <!--
                 From command line service can be started with following line:
                 java -jar .\ExampleWebService-swarm.jar -Sh2
@@ -123,6 +135,11 @@
                 <artifactId>wildfly-swarm-plugin</artifactId>
                 <version>${version.wildfly.swarm}</version>
                 <configuration>
+
+
+                    <!--fractions>
+                        <fraction>flyway</fraction>
+                    </fractions-->
                     <arguments>
                         <argument>-Sh2</argument>
                     </arguments>

@@ -10,4 +10,11 @@
         <param-value>file:///C:/log/_log4j2.xml_</param-value>
     </context-param-->
 
+
+    <context-param>
+        <param-name>flyway.jndi.datasource</param-name>
+        <param-value>jboss/datasources/ExampleWebServiceDataSource</param-value>
+    </context-param>
+
+
 </web-app>

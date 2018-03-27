@@ -17,8 +17,8 @@ import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 
-import org.wildfly.swarm.health.Health;
-import org.wildfly.swarm.health.HealthStatus;
+//import org.wildfly.swarm.health.Health;
+//import org.wildfly.swarm.health.HealthStatus;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 
@@ -58,6 +58,7 @@ public class CoreSystemResource {
     }
 
 
+/*
     @ApiOperation(value = "Get service status", response = HealthStatus.class)
     @GET
     @Path("/diskspace")
@@ -88,5 +89,5 @@ public class CoreSystemResource {
                 .withAttribute("date", new Date().toString())
                 .withAttribute("time", System.currentTimeMillis());
     }
-
+*/
 }
